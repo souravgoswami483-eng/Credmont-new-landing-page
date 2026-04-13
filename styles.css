@@ -911,11 +911,17 @@ ul {
   border-radius: var(--radius-md);
   overflow: hidden;
   cursor: pointer;
-  height: 260px;
+  height: 500px;
 }
 
 .gallery-item.gallery-large {
+  grid-column: span 2;
   grid-row: span 2;
+  height: 100%;
+}
+
+.gallery-item.gallery-wide {
+  grid-column: span 2;
   height: 100%;
 }
 
@@ -2276,9 +2282,11 @@ ul {
   }
 
   .gallery-item.gallery-large,
-  .gallery-item.gallery-tall {
+  .gallery-item.gallery-tall,
+  .gallery-item.gallery-wide {
+    grid-column: span 1;
     grid-row: span 1;
-    height: 260px;
+    height: 400px;
   }
 
   .scroll-indicator {
@@ -2394,9 +2402,11 @@ ul {
 
   .gallery-item,
   .gallery-item.gallery-large,
-  .gallery-item.gallery-tall {
-    height: 220px;
+  .gallery-item.gallery-tall,
+  .gallery-item.gallery-wide {
+    height: 300px;
     grid-row: span 1;
+    grid-column: span 1;
   }
 
   .banner-box {
