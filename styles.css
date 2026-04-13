@@ -754,7 +754,7 @@ ul {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 0;
   background: var(--white);
   border-radius: var(--radius-lg);
@@ -2237,11 +2237,15 @@ ul {
   }
 
   .stats-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .stat-item:nth-child(4),
-  .stat-item:nth-child(5) {
+  .stat-item:nth-child(even)::after {
+    display: none;
+  }
+
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
     border-top: 1px solid var(--gray-200);
   }
 
@@ -2342,9 +2346,7 @@ ul {
     display: none !important;
   }
 
-  .stat-item:last-child {
-    grid-column: span 2;
-  }
+  /* Removed last-child span 2 since it's an even 2x2 grid now */
 
   .features-grid {
     grid-template-columns: 1fr;
