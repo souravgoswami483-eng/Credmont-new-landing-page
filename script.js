@@ -43,17 +43,21 @@ function updateSlider() {
     });
 }
 
-// Auto-slide every 6 seconds
+// Auto-slide disabled as requested
 function startAutoSlide() {
+    /*
     autoSlideInterval = setInterval(() => {
         currentIdx = (currentIdx + 1) % panels.length;
         updateSlider();
     }, 6000);
+    */
 }
 
 function resetAutoSlide() {
+    /*
     clearInterval(autoSlideInterval);
     startAutoSlide();
+    */
 }
 
 if (prevBtn && nextBtn) {
@@ -242,6 +246,14 @@ if (popupOverlay && openPopupBtns && closePopupBtn) {
             document.body.style.overflow = '';
         }
     });
+
+    // Auto show popup after 4 seconds
+    setTimeout(() => {
+        if (!popupOverlay.classList.contains('active')) {
+            popupOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }, 4000);
 }
 
 // ===== Parallax Effect on Hero =====
