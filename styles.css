@@ -45,12 +45,13 @@ html {
 }
 
 body {
-  font-family: var(--font-primary);
+  font-family: var(--font-primary), system-ui, -apple-system, sans-serif;
   color: var(--gray-700);
   background: var(--white);
   line-height: 1.7;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 img {
@@ -222,15 +223,13 @@ ul {
 /* Scroll-triggered animations */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .animate-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
-  will-change: auto;
 }
 
 /* Stagger children animation */
@@ -252,11 +251,11 @@ ul {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.96);
+  /* backdrop-filter only on desktop — expensive on mobile */
   border-bottom: 1px solid rgba(7, 81, 148, 0.06);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
 }
 
 .header.scrolled {
@@ -428,7 +427,7 @@ ul {
   height: 100%;
   object-fit: cover;
   opacity: 0.3;
-  will-change: transform;
+  /* will-change removed — avoids extra GPU layer on mobile */
   animation: slowZoom 20s ease-in-out infinite alternate;
 }
 
@@ -2631,16 +2630,19 @@ ul {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
-/* ===== MOBILE ANIMATION REDUCTION (Performance) ===== */
+/* ===== MOBILE PERFORMANCE & ANIMATION REDUCTION ===== */
 @media (max-width: 768px) {
+  /* Disable GPU-heavy animations on mobile */
   .hero-bg img {
-    animation: none;
+    animation: none !important;
+    transform: none !important;
   }
   .particle {
-    display: none;
+    display: none !important;
   }
   .about-floating-badge {
     animation: none;
@@ -2653,5 +2655,45 @@ ul {
   }
   .feature-shine {
     display: none;
+  }
+  /* Disable backdrop-filter on mobile (expensive paint) */
+  .header {
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  .trust-badge {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  /* Simplify hero overlay on mobile */
+  .hero-overlay {
+    background: rgba(7, 81, 148, 0.82) !important;
+  }
+  /* Reduce transition complexity on mobile */
+  .btn {
+    transition: background 0.2s ease, box-shadow 0.2s ease !important;
+  }
+  /* Simpler animate-on-scroll on mobile */
+  .animate-on-scroll {
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  /* content-visibility for off-screen sections — major render savings */
+  .gallery-section,
+  .features-section,
+  .students-section,
+  .testimonials-section,
+  .faq-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 600px;
+  }
+}
+
+/* Desktop — enable backdrop-filter */
+@media (min-width: 769px) {
+  .header {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   }
 }

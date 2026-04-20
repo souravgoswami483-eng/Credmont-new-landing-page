@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,10 +7,11 @@
     <title>Best CBSE School in Howrah | Credmont International School</title>
     <meta name="description"
         content="Credmont International School – Top CBSE school in Howrah offering world-class education from Nursery to Grade 8. Admissions open for 2026-27.">
+    <meta name="theme-color" content="#075194">
     <!-- Preload critical assets -->
     <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="images/hero-campus.png" as="image" fetchpriority="high">
-    <link rel="preload" href="images/logo.png" as="image">
+    <link rel="preload" href="images/hero-campus.webp" as="image" fetchpriority="high" type="image/webp">
+    <link rel="preload" href="images/logo.png" as="image" fetchpriority="high">
     <!-- Google Fonts with display=swap to avoid render-blocking -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +22,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     </noscript>
     <link rel="stylesheet" href="styles.css">
+    <!-- Critical inline CSS to eliminate render-blocking font flash -->
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; }
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); height: 72px; }
+        .hero { min-height: 100vh; background: #075194; }
+        .hero-bg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    </style>
 </head>
 
 <body>
@@ -47,7 +55,10 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-bg">
-            <img src="images/hero-campus.png" alt="Credmont Campus" width="1920" height="1080" fetchpriority="high">
+            <picture>
+                <source srcset="images/hero-campus.webp" type="image/webp">
+                <img src="images/hero-campus.webp" alt="Credmont Campus" width="1920" height="1080" fetchpriority="high" decoding="sync" sizes="100vw">
+            </picture>
         </div>
         <div class="hero-overlay"></div>
         <!-- Animated Particles -->
@@ -142,7 +153,7 @@
                         <!-- Nursery to Grade 2 -->
                         <div class="grade-panel active" id="tab-nursery">
                             <div class="grade-image">
-                                <img src="images/student-nursery.png" alt="Nursery to Grade 2 Student" width="600" height="500" loading="lazy">
+                                <img src="images/student-nursery.webp" alt="Nursery to Grade 2 Student" width="600" height="500" loading="lazy" decoding="async" sizes="(max-width: 768px) 100vw, 50vw">
                                 <div class="grade-badge">
                                     <svg viewBox="0 0 24 24">
                                         <path
@@ -199,7 +210,7 @@
                         <!-- Grade 3 to 5 -->
                         <div class="grade-panel" id="tab-middle">
                             <div class="grade-image">
-                                <img src="images/student-middle.png" alt="Grade 3 to Grade 5 Student" width="600" height="500" loading="lazy">
+                                <img src="images/student-middle.webp" alt="Grade 3 to Grade 5 Student" width="600" height="500" loading="lazy" decoding="async" sizes="(max-width: 768px) 100vw, 50vw">
                                 <div class="grade-badge">
                                     <svg viewBox="0 0 24 24">
                                         <path
@@ -256,7 +267,7 @@
                         <!-- Grade 6 to 8 -->
                         <div class="grade-panel" id="tab-senior">
                             <div class="grade-image">
-                                <img src="images/student-senior.png" alt="Grade 6 to Grade 8 Student" width="600" height="500" loading="lazy">
+                                <img src="images/student-senior.webp" alt="Grade 6 to Grade 8 Student" width="600" height="500" loading="lazy" decoding="async" sizes="(max-width: 768px) 100vw, 50vw">
                                 <div class="grade-badge">
                                     <svg viewBox="0 0 24 24">
                                         <path
@@ -439,7 +450,7 @@
                 </div>
                 <div class="about-image-wrapper animate-on-scroll">
                     <div class="about-image">
-                        <img src="images/hero-campus.png" alt="Credmont Infrastructure" width="600" height="420" loading="lazy">
+                        <img src="images/hero-campus.webp" alt="Credmont Infrastructure" width="600" height="420" loading="lazy" decoding="async" sizes="(max-width: 768px) 100vw, 50vw">
                     </div>
                     <div class="about-floating-badge">
                         <div class="badge-number">2025</div>
@@ -1028,6 +1039,8 @@
     </div>
 
     <script src="script.js" defer></script>
+    <!-- Preconnect for performance -->
+    <link rel="dns-prefetch" href="https://wa.me">
 </body>
 
 </html>
