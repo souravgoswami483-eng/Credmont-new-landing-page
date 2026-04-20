@@ -6,13 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best CBSE School in Howrah | Credmont International School</title>
     <meta name="description"
-        content="Nurturing Innovators, Unlocking Infinite Possibilities. Discover world-class education at Credmont International School, Howrah.">
-    <!-- Google Fonts -->
+        content="Credmont International School – Top CBSE school in Howrah offering world-class education from Nursery to Grade 8. Admissions open for 2026-27.">
+    <!-- Preload critical assets -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="images/hero-campus.png" as="image" fetchpriority="high">
+    <link rel="preload" href="images/logo.png" as="image">
+    <!-- Google Fonts with display=swap to avoid render-blocking -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
-        rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    </noscript>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -22,7 +29,7 @@
     <header class="header" id="header">
         <div class="header-inner">
             <a href="#" class="logo">
-                <img src="images/logo.png" alt="Credmont International School">
+                <img src="images/logo.png" alt="Credmont International School" width="120" height="48">
             </a>
             <div class="header-cta">
                 <a href="tel:+916292000095" class="header-phone">
@@ -40,7 +47,7 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-bg">
-            <img src="images/hero-campus.png" alt="Credmont Campus">
+            <img src="images/hero-campus.png" alt="Credmont Campus" width="1920" height="1080" fetchpriority="high">
         </div>
         <div class="hero-overlay"></div>
         <!-- Animated Particles -->
@@ -135,7 +142,7 @@
                         <!-- Nursery to Grade 2 -->
                         <div class="grade-panel active" id="tab-nursery">
                             <div class="grade-image">
-                                <img src="images/student-nursery.png" alt="Nursery to Grade 2 Student">
+                                <img src="images/student-nursery.png" alt="Nursery to Grade 2 Student" width="600" height="500" loading="lazy">
                                 <div class="grade-badge">
                                     <svg viewBox="0 0 24 24">
                                         <path
@@ -192,7 +199,7 @@
                         <!-- Grade 3 to 5 -->
                         <div class="grade-panel" id="tab-middle">
                             <div class="grade-image">
-                                <img src="images/student-middle.png" alt="Grade 3 to Grade 5 Student">
+                                <img src="images/student-middle.png" alt="Grade 3 to Grade 5 Student" width="600" height="500" loading="lazy">
                                 <div class="grade-badge">
                                     <svg viewBox="0 0 24 24">
                                         <path
@@ -249,7 +256,7 @@
                         <!-- Grade 6 to 8 -->
                         <div class="grade-panel" id="tab-senior">
                             <div class="grade-image">
-                                <img src="images/student-senior.png" alt="Grade 6 to Grade 8 Student">
+                                <img src="images/student-senior.png" alt="Grade 6 to Grade 8 Student" width="600" height="500" loading="lazy">
                                 <div class="grade-badge">
                                     <svg viewBox="0 0 24 24">
                                         <path
@@ -432,7 +439,7 @@
                 </div>
                 <div class="about-image-wrapper animate-on-scroll">
                     <div class="about-image">
-                        <img src="images/hero-campus.png" alt="Credmont Infrastructure">
+                        <img src="images/hero-campus.png" alt="Credmont Infrastructure" width="600" height="420" loading="lazy">
                     </div>
                     <div class="about-floating-badge">
                         <div class="badge-number">2025</div>
@@ -461,7 +468,7 @@
 
             <div class="gallery-grid">
                 <div class="gallery-item" data-label="Badminton Club">
-                    <img src="images/sports-ground.webp" alt="Badminton Club" loading="lazy">
+                    <img src="images/sports-ground.webp" alt="Badminton Club" width="600" height="500" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <div class="gallery-label">
                             <svg viewBox="0 0 24 24">
@@ -473,7 +480,7 @@
                     </div>
                 </div>
                 <div class="gallery-item" data-label="Cricket Club">
-                    <img src="images/classroom-smart.webp" alt="Cricket Club" loading="lazy">
+                    <img src="images/classroom-smart.webp" alt="Cricket Club" width="600" height="500" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <div class="gallery-label">
                             <svg viewBox="0 0 24 24">
@@ -485,7 +492,7 @@
                     </div>
                 </div>
                 <div class="gallery-item" data-label="Cookery Labs">
-                    <img src="images/science-lab.webp" alt="Cookery Labs" loading="lazy">
+                    <img src="images/science-lab.webp" alt="Cookery Labs" width="600" height="500" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <div class="gallery-label">
                             <svg viewBox="0 0 24 24">
@@ -497,7 +504,7 @@
                     </div>
                 </div>
                 <div class="gallery-item" data-label="Drama Club">
-                    <img src="images/school-library.webp" alt="Drama Club" loading="lazy">
+                    <img src="images/school-library.webp" alt="Drama Club" width="600" height="500" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <div class="gallery-label">
                             <svg viewBox="0 0 24 24">
@@ -509,7 +516,7 @@
                     </div>
                 </div>
                 <div class="gallery-item" data-label="Interact Club">
-                    <img src="images/arts-activities.webp" alt="Interact Club" loading="lazy">
+                    <img src="images/arts-activities.webp" alt="Interact Club" width="600" height="500" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <div class="gallery-label">
                             <svg viewBox="0 0 24 24">
@@ -521,7 +528,7 @@
                     </div>
                 </div>
                 <div class="gallery-item" data-label="Science Labs">
-                    <img src="images/campus-aerial.webp" alt="Science labs" loading="lazy">
+                    <img src="images/campus-aerial.webp" alt="Science Labs" width="600" height="500" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <div class="gallery-label">
                             <svg viewBox="0 0 24 24">
@@ -894,7 +901,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#" class="logo">
-                        <img src="images/logo-footer.png" alt="Credmont International School">
+                        <img src="images/logo-footer.png" alt="Credmont International School" width="120" height="54" loading="lazy">
                     </a>
                     <p>Focused on imparting education that empowers children and transforms them into exceptional future
                         citizens. We believe in holistic development for the 21st century.</p>
@@ -1020,7 +1027,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>

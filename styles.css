@@ -224,11 +224,13 @@ ul {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .animate-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
+  will-change: auto;
 }
 
 /* Stagger children animation */
@@ -426,6 +428,7 @@ ul {
   height: 100%;
   object-fit: cover;
   opacity: 0.3;
+  will-change: transform;
   animation: slowZoom 20s ease-in-out infinite alternate;
 }
 
@@ -891,6 +894,16 @@ ul {
   color: var(--gray-500);
   max-width: 640px;
   margin: 0 auto;
+}
+
+/* ===== CONTENT-VISIBILITY (Performance) ===== */
+.gallery-section,
+.features-section,
+.testimonials-section,
+.faq-section,
+.students-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 600px;
 }
 
 /* ===== CAMPUS LIFE GALLERY ===== */
@@ -2607,5 +2620,38 @@ ul {
   .popup-close {
     top: 8px;
     right: 8px;
+  }
+}
+
+/* ===== REDUCED MOTION (Accessibility + Performance) ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== MOBILE ANIMATION REDUCTION (Performance) ===== */
+@media (max-width: 768px) {
+  .hero-bg img {
+    animation: none;
+  }
+  .particle {
+    display: none;
+  }
+  .about-floating-badge {
+    animation: none;
+  }
+  .hero-badge {
+    animation: none;
+  }
+  .scroll-indicator {
+    display: none;
+  }
+  .feature-shine {
+    display: none;
   }
 }
